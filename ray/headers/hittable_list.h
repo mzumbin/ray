@@ -22,7 +22,7 @@ class hittable_list: public hittable {
             bool hit_anything = false;
             double closest_so_far = t_max;
             for (auto& hitable : _hittable_list) {
-                if (auto hit_recO = (*hitable).hit(r, t_min, closest_so_far)) {
+                if (auto hit_recO = hitable->hit(r, t_min, closest_so_far)) {
                     hit_anything = true;
                     closest_so_far = hit_recO.value().t;
                     temp_rec= hit_recO.value();

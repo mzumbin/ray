@@ -11,10 +11,12 @@
 #include <optional>
 #include <functional>
 #include "ray.h"
+class material;
 struct hit_record {
     float t;
     Vector3f p;
     Vector3f normal;
+    class material;
 };
 
 class hittable  {

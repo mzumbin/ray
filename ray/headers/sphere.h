@@ -10,6 +10,8 @@
 #define sphere_h
 #include "hitable.h"
 #include  <utility>
+#include <iostream>
+
 class sphere: public hittable  {
     public:
         sphere() {}
@@ -36,10 +38,10 @@ std::optional<hit_record> sphere::hit(const ray& r, float t_min, float t_max) co
         }
         temp = (-b + sqrt(discriminant)) / a;
         if (temp < t_max && temp > t_min) {
-            auto t = temp;
-            auto p = r.point_at_parameter(rec.t);
-            auto normal = (rec.p - center) / radius;
-            return hit_record{ t, p, normal};
+            rec.t = temp;
+            rec.p = r.point_at_parameter(rec.t);
+            rec.normal = (rec.p - center) / radius;
+            return rec;
         }
     }
     return std::nullopt;
