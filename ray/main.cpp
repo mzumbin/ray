@@ -22,17 +22,13 @@ using namespace cimg_library;
 static const auto max_depht = 50;
 
 Vector3f color(const ray& r, hittable_list& world, int depht) {
-    // hit_record rec;
     if (auto hitO = world.hit(r, 0.001, MAXFLOAT)) {
-        auto rec = hitO.value();
-        auto scat_hitO = rec.m->scatter(r,rec);
+        auto scat_hitO = hitO->m->scatter(r,hitO.value());
         if ( scat_hitO.has_value() && depht < max_depht){
             return scat_hitO->attenuation.cwiseProduct( color(scat_hitO->scattered, world, depht+1));
         }else{
             return Vector3f(0.,0.,0.);
         }
-//        Vector3f target = rec.p + rec.normal + random_in_unit_sphere();
-//        return 0.5 * color(ray(rec.p, target - rec.p), world);
     }
     else {
         Vector3f unit_direction = r.direction().normalized();
