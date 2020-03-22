@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9C6A32CD22D16D9A001D4B96 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2F4852288CA75008A576B /* main.cpp */; };
-		9CD9E6502380BB0E008CF4A0 /* ray_trace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD9E64F2380BB0C008CF4A0 /* ray_trace.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,7 +38,6 @@
 		9CAD272D242486EF00B1439D /* metal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metal.h; sourceTree = "<group>"; };
 		9CB2F4822288CA75008A576B /* ray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ray; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB2F4852288CA75008A576B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = main.cpp; sourceTree = "<group>"; };
-		9CD9E64F2380BB0C008CF4A0 /* ray_trace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ray_trace.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 			children = (
 				9CB2F48C2288D09D008A576B /* headers */,
 				9CB2F4852288CA75008A576B /* main.cpp */,
-				9CD9E64F2380BB0C008CF4A0 /* ray_trace.cpp */,
 			);
 			path = ray;
 			sourceTree = "<group>";
@@ -156,7 +153,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD9E6502380BB0E008CF4A0 /* ray_trace.cpp in Sources */,
 				9C6A32CD22D16D9A001D4B96 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

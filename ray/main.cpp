@@ -16,6 +16,8 @@
 #include <memory>
 #include "lambertian.h"
 #include "metal.h"
+#include <string>
+#include <iostream>
 using namespace cimg_library;
 static const auto max_depht = 50;
 
@@ -71,8 +73,8 @@ int main(int argc, const char * argv[]) {
         visu(i,j,0,1) = ig;
         visu(i,j,0,2) = ib;
     }
-    
-    visu.save("/Users/marcelo/Downloads/t.bmp");
+    const auto homeDir = std::string(getenv("HOME"));
+    visu.save( (homeDir + "/ray.bmp").c_str());
     return 0;
     
 }
