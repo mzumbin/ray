@@ -23,7 +23,7 @@ static const auto max_depht = 50;
 
 Vector3f color(const ray& r, hittable_list& world, int depht) {
     if (auto hitO = world.hit(r, 0.001, MAXFLOAT)) {
-        auto scat_hitO = hitO->m->scatter(r,hitO.value());
+        auto scat_hitO = hitO->material->scatter(r,hitO.value());
         if ( scat_hitO.has_value() && depht < max_depht){
             return scat_hitO->attenuation.cwiseProduct( color(scat_hitO->scattered, world, depht+1));
         }else{
