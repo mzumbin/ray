@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9CB2F4862288CA75008A576B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2F4852288CA75008A576B /* main.cpp */; };
+		9C6A32CD22D16D9A001D4B96 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2F4852288CA75008A576B /* main.cpp */; };
+		9CD9E6502380BB0E008CF4A0 /* ray_trace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD9E64F2380BB0C008CF4A0 /* ray_trace.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +24,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9CAD272023F0AE9900B1439D /* ray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ray.h; sourceTree = "<group>"; };
+		9CAD272123F9FCD800B1439D /* hitable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hitable.h; sourceTree = "<group>"; };
+		9CAD272323FA01A300B1439D /* sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sphere.h; sourceTree = "<group>"; };
+		9CAD272423FA063E00B1439D /* hittable_list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hittable_list.h; sourceTree = "<group>"; };
+		9CAD272523FA3D6600B1439D /* random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
+		9CAD272623FA3DB200B1439D /* camera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		9CAD2727241B0DD200B1439D /* material.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = material.h; sourceTree = "<group>"; };
+		9CAD2728241F32A100B1439D /* lambertian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lambertian.h; sourceTree = "<group>"; };
+		9CAD272924246DF500B1439D /* material_hit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = material_hit.h; sourceTree = "<group>"; };
+		9CAD272A24246FB600B1439D /* hit_record.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hit_record.h; sourceTree = "<group>"; };
+		9CAD272B242472AC00B1439D /* material_scatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = material_scatter.h; sourceTree = "<group>"; };
+		9CAD272C2424860200B1439D /* vec_ops.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vec_ops.h; sourceTree = "<group>"; };
+		9CAD272D242486EF00B1439D /* metal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metal.h; sourceTree = "<group>"; };
 		9CB2F4822288CA75008A576B /* ray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ray; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CB2F4852288CA75008A576B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9CB2F4852288CA75008A576B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = main.cpp; sourceTree = "<group>"; };
+		9CD9E64F2380BB0C008CF4A0 /* ray_trace.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ray_trace.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +72,31 @@
 		9CB2F4842288CA75008A576B /* ray */ = {
 			isa = PBXGroup;
 			children = (
+				9CB2F48C2288D09D008A576B /* headers */,
 				9CB2F4852288CA75008A576B /* main.cpp */,
+				9CD9E64F2380BB0C008CF4A0 /* ray_trace.cpp */,
 			);
 			path = ray;
+			sourceTree = "<group>";
+		};
+		9CB2F48C2288D09D008A576B /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				9CAD272023F0AE9900B1439D /* ray.h */,
+				9CAD272123F9FCD800B1439D /* hitable.h */,
+				9CAD272323FA01A300B1439D /* sphere.h */,
+				9CAD272423FA063E00B1439D /* hittable_list.h */,
+				9CAD272523FA3D6600B1439D /* random.h */,
+				9CAD272623FA3DB200B1439D /* camera.h */,
+				9CAD2727241B0DD200B1439D /* material.h */,
+				9CAD2728241F32A100B1439D /* lambertian.h */,
+				9CAD272924246DF500B1439D /* material_hit.h */,
+				9CAD272A24246FB600B1439D /* hit_record.h */,
+				9CAD272B242472AC00B1439D /* material_scatter.h */,
+				9CAD272C2424860200B1439D /* vec_ops.h */,
+				9CAD272D242486EF00B1439D /* metal.h */,
+			);
+			path = headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +156,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CB2F4862288CA75008A576B /* main.cpp in Sources */,
+				9CD9E6502380BB0E008CF4A0 /* ray_trace.cpp in Sources */,
+				9C6A32CD22D16D9A001D4B96 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,10 +168,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -174,9 +213,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=x86_64]" = (
+					/usr/local/include/eigen3/,
+					/usr/local/include,
+					/opt/X11/include,
+				);
+				"LIBRARY_SEARCH_PATHS[arch=x86_64]" = /opt/X11/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=x86_64]" = "-lX11";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -185,10 +231,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -212,19 +259,28 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/eigen3/,
+					/usr/local/include,
+					/opt/X11/include,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/X11/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=x86_64]" = "-lX11";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -232,6 +288,7 @@
 		9CB2F48A2288CA75008A576B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -240,6 +297,7 @@
 		9CB2F48B2288CA75008A576B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

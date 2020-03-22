@@ -8,16 +8,14 @@
 
 #ifndef hitable_h
 #define hitable_h
+
 #include <optional>
 #include <functional>
 #include "ray.h"
-class material;
-struct hit_record {
-    float t;
-    Vector3f p;
-    Vector3f normal;
-    class material;
-};
+#include "material_hit.h"
+#include "hit_record.h"
+
+
 
 class hittable  {
     public:

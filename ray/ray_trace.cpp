@@ -6,8 +6,8 @@
  the scene read in from the input file.
 *******************************/
 
-#include "ray_trace.h"
-#include "read_input.h"
+//#include "ray_trace.h"
+//#include "read_input.h"
 ////extern void readSceneFile(char *filename);
 //
 ///* the information read from the file */

@@ -22,7 +22,7 @@ class camera {
             return ray(origin,
                        higher_left_corner + u*horizontal + v*vertical - origin);
         }
-
+    private :
         Vector3f origin;
         Vector3f lower_left_corner;
         Vector3f horizontal;

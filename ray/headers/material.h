@@ -11,17 +11,15 @@
 
 #include <tuple>
 #include <optional>
+//#include "hitable.h"
 #include "ray.h"
-
-
-struct material_hit {
-    Vector3f attenuation,
-    ray scattered
-};
+#include "material_hit.h"
+#include "hit_record.h"
+#include "material_scatter.h"
 class material  {
     public:
-        virtual std::optional<material_hit> scatter(
-            const ray& r_in, const hit_record& rec) const = 0;
+      virtual std::optional<material_hit> scatter(const ray& r_in, const hit_record& rec) const = 0;
+    //virtual material_scatter getMaterialFunc() const = 0 ;
 };
 
 #endif /* material_h */

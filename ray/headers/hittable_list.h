@@ -18,14 +18,14 @@ class hittable_list: public hittable {
 
         std::optional<hit_record> hit(const ray& r, float t_min, float t_max) const {
 
-            hit_record temp_rec;
+            std::optional<hit_record> temp_rec = std::nullopt ;
             bool hit_anything = false;
             double closest_so_far = t_max;
             for (auto& hitable : _hittable_list) {
                 if (auto hit_recO = hitable->hit(r, t_min, closest_so_far)) {
                     hit_anything = true;
-                    closest_so_far = hit_recO.value().t;
-                    temp_rec= hit_recO.value();
+                    closest_so_far = hit_recO->t;
+                    temp_rec = std::move(hit_recO);
                 }
             }
             if (hit_anything){
