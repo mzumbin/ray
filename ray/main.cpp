@@ -56,9 +56,9 @@ int main(int argc, const char * argv[]) {
     cimg_forXY(visu,i,j) {
         Vector3f col(0.,0.,0.);
         for (int s = 0; s < ns; s++) {
-            float u = float(i + random_double()) / float(nx);
-            float v = float(j + random_double()) / float(ny);
-            ray r = cam.get_ray(u, v);
+            const float u = float(i + random_double()) / float(nx);
+            const float v = float(j + random_double()) / float(ny);
+            const ray r = cam.get_ray(u, v);
             col += color(r, world, 0);
         }
         col /= float(ns);
