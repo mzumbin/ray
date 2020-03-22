@@ -25,9 +25,9 @@ Vector3f color(const ray& r, hittable_list& world, int depht) {
     // hit_record rec;
     if (auto hitO = world.hit(r, 0.001, MAXFLOAT)) {
         auto rec = hitO.value();
-        auto scat_hit0 = rec.m->scatter(r,rec);
-        if ( scat_hit0.has_value() && depht < max_depht){
-            return scat_hit0->attenuation.cwiseProduct( color(scat_hit0->scattered, world, depht+1));
+        auto scat_hitO = rec.m->scatter(r,rec);
+        if ( scat_hitO.has_value() && depht < max_depht){
+            return scat_hitO->attenuation.cwiseProduct( color(scat_hitO->scattered, world, depht+1));
         }else{
             return Vector3f(0.,0.,0.);
         }
