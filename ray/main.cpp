@@ -18,6 +18,7 @@
 #include "metal.h"
 #include <string>
 #include <iostream>
+#include "dieletric.h"
 using namespace cimg_library;
 static const auto max_depht = 50;
 
@@ -46,7 +47,10 @@ int main(int argc, const char * argv[]) {
     list.emplace_back( new sphere(Vector3f(0,0,-1), 0.5, new lambertian(Vector3f(0.8, 0.3, 0.3))));
     list.emplace_back( new sphere(Vector3f(0,-100.5,-1), 100, new lambertian(Vector3f(0.8, 0.8, 0.0))));
     list.emplace_back( new sphere(Vector3f(1,0,-1), 0.5, new metal(Vector3f(0.8, 0.6, 0.2))));
-    list.emplace_back( new sphere(Vector3f(-1,0,-1), 0.5, new metal(Vector3f(0.8, 0.8, 0.8))));
+    //list.emplace_back( new sphere(Vector3f(-1,0,-1), 0.5, new metal(Vector3f(0.8, 0.8, 0.8))));
+    list.emplace_back( new sphere(Vector3f(-1,0,-1), 0.5, new dielectric(1.5)));
+    list.emplace_back(new sphere(Vector3f(-1,0,-1), -0.45, new dielectric(1.5)));
+
     hittable_list world = hittable_list(std::move(list));
     camera cam;
     
