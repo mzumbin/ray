@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9C3134E3245E1BC8000A2275 /* dieletric.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dieletric.h; sourceTree = "<group>"; };
 		9CAD272023F0AE9900B1439D /* ray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ray.h; sourceTree = "<group>"; };
 		9CAD272123F9FCD800B1439D /* hitable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hitable.h; sourceTree = "<group>"; };
 		9CAD272323FA01A300B1439D /* sphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sphere.h; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 				9CAD272B242472AC00B1439D /* material_scatter.h */,
 				9CAD272C2424860200B1439D /* vec_ops.h */,
 				9CAD272D242486EF00B1439D /* metal.h */,
+				9C3134E3245E1BC8000A2275 /* dieletric.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";
