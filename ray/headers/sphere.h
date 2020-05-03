@@ -28,19 +28,21 @@ std::optional<hit_record> sphere::hit(const ray& r, float t_min, float t_max) co
     const float b = oc.dot( r.direction());
     const float c = oc.dot(oc)  - radius*radius;
     const float discriminant = b*b - a*c;
-   
+    const float discriminatSquareRoot = sqrt(discriminant);
     if (discriminant > 0) {
-        const auto firstRoot = (-b - sqrt(discriminant))/a;
+        
+        const auto firstRoot = (-b - discriminatSquareRoot)/a;
         if (firstRoot < t_max && firstRoot > t_min) {
             const auto p = r.point_at_parameter(firstRoot);
-            const auto normal = (p - center) / radius;
-            return hit_record { firstRoot, p , normal , scater};
+            //const auto normal = (p - center) / radius;
+            const auto outward_normal = (p - center) / radius;
+            return build_hit_record(r, outward_normal, firstRoot, p, scater) ;
         }
-        const auto secondRoot = (-b + sqrt(discriminant)) / a;
+        const auto secondRoot = (-b + discriminatSquareRoot) / a;
         if (secondRoot < t_max && secondRoot > t_min) {
-            const auto p = r.point_at_parameter(firstRoot);
-            const auto normal = (p - center) / radius;
-            return hit_record { secondRoot, p , normal , scater};
+            const auto p = r.point_at_parameter(secondRoot);
+            const auto outward_normal = (p - center) / radius;
+            return build_hit_record(r, outward_normal, secondRoot, p, scater) ;
         }
     }
     return std::nullopt;

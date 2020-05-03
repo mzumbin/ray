@@ -12,18 +12,19 @@
 #include "material.h"
 #include <functional>
 #include "vec_ops.h"
+#include "random.h"
+#include <stdexcept>
+
 //using namespace std::placeholders;
 class metal : public material {
     public:
-        metal(const Vector3f& a) : albedo(a) {}
+        metal(const Vector3f& a, double f=0.0) : albedo(a), fuzz(f) {}
         
-    //        material_scatter getMaterialFunc() {
-    //           return std::bind(&metal::scatter, this, _1, _2);
-    //        }
+   
     
        virtual std::optional<material_hit> scatter(const ray& r_in, const hit_record& rec) const {
            const auto reflected = reflect(r_in.direction().normalized(), rec.normal);
-           const auto scattered = ray(rec.p, reflected);
+           const auto scattered = ray(rec.p, reflected + fuzz* random_in_unit_sphere());
            if (scattered.direction().dot(rec.normal) > 0) {
                return material_hit  { albedo, scattered };
            }
@@ -33,7 +34,7 @@ private:
        
             
             
-    
+    const double fuzz;
     const Vector3f albedo;
 };
 

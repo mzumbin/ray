@@ -19,7 +19,6 @@
 class material  {
     public:
       virtual std::optional<material_hit> scatter(const ray& r_in, const hit_record& rec) const = 0;
-    //virtual material_scatter getMaterialFunc() const = 0 ;
 };
 
 #endif /* material_h */
