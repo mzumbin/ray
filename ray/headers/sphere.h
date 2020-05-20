@@ -28,9 +28,9 @@ std::optional<hit_record> sphere::hit(const ray& r, float t_min, float t_max) co
     const float b = oc.dot( r.direction());
     const float c = oc.dot(oc)  - radius*radius;
     const float discriminant = b*b - a*c;
-    const float discriminatSquareRoot = sqrt(discriminant);
+    ;
     if (discriminant > 0) {
-        
+        const float discriminatSquareRoot = sqrt(discriminant);
         const auto firstRoot = (-b - discriminatSquareRoot)/a;
         if (firstRoot < t_max && firstRoot > t_min) {
             const auto p = r.point_at_parameter(firstRoot);
