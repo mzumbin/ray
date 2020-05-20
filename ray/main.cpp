@@ -41,8 +41,8 @@ Vector3f color(const ray& r, hittable_list& world, int depht) {
 int main(int argc, const char * argv[]) {
     int nx = 800;
     int ny = 400;
-    int ns = 200;
-    CImg<unsigned char> visu(nx,ny,1,3,0);
+    int number_of_samples = 200;
+    CImg<unsigned char> visu_img(nx,ny,1,3,0);
     std::vector<hittable*>  list;
     list.emplace_back( new sphere(Vector3f(0,0,-1), 0.5, new lambertian(Vector3f(0.8, 0.3, 0.3))));
     list.emplace_back( new sphere(Vector3f(0,-100.5,-1), 100, new lambertian(Vector3f(0.8, 0.8, 0.0))));
@@ -55,26 +55,26 @@ int main(int argc, const char * argv[]) {
     camera cam;
     
     
-    cimg_forXY(visu,i,j) {
+    cimg_forXY(visu_img,i,j) {
         Vector3f col(0.,0.,0.);
-        for (int s = 0; s < ns; s++) {
+        for (int s = 0; s < number_of_samples; s++) {
             const float u = float(i + random_double()) / float(nx);
             const float v = float(j + random_double()) / float(ny);
             const ray r = cam.get_ray(u, v);
             col += color(r, world, 0);
         }
-        col /= float(ns);
+        col /= float(number_of_samples);
         col = Vector3f( sqrt(col[0]), sqrt(col[1]), sqrt(col[2]) );
         int ir = int(255.99*col.x());
         int ig = int(255.99*col.y());
         int ib = int(255.99*col.z());
         
-        visu(i,j) = ir;
-        visu(i,j,0,1) = ig;
-        visu(i,j,0,2) = ib;
+        visu_img(i,j) = ir;
+        visu_img(i,j,0,1) = ig;
+        visu_img(i,j,0,2) = ib;
     }
     const auto homeDir = std::string(getenv("HOME"));
-    visu.save( (homeDir + "/ray.bmp").c_str());
+    visu_img.save( (homeDir + "/ray.bmp").c_str());
     return 0;
     
 }
